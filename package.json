@@ -1,0 +1,23 @@
+{
+  "name": "grunt-simple2",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-contrib-htmlmin": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-rev": "*",
+    "grunt-ngmin": "*",
+    "load-grunt-tasks": "*",
+    "grunt-usemin": "*",
+    "require": "*"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  }
+}
