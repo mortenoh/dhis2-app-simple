@@ -88,9 +88,9 @@ module.exports = function( grunt ) {
   grunt.registerTask('default', [
     'clean',
     'useminPrepare',
+    'concat',
     'htmlmin',
     'cssmin',
-    'concat',
     'ngmin',
     'uglify',
     'copy',
