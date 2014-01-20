@@ -13,6 +13,7 @@
     "grunt-contrib-uglify": "*",
     "grunt-rev": "*",
     "grunt-ngmin": "*",
+    "time-grunt": "*",
     "load-grunt-tasks": "*",
     "grunt-usemin": "*",
     "require": "*"
