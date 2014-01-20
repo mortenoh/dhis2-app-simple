@@ -11,6 +11,8 @@
     "grunt-contrib-htmlmin": "*",
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-uglify": "*",
+    "grunt-contrib-connect": "*",
+    "grunt-connect-proxy": "*",
     "grunt-rev": "*",
     "grunt-ngmin": "*",
     "time-grunt": "*",

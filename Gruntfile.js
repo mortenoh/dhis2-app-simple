@@ -3,6 +3,9 @@ module.exports = function( grunt ) {
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+    watch: {
+    },
+
     clean: {
       dist: {
         dot: true,
@@ -83,10 +86,47 @@ module.exports = function( grunt ) {
           }
         ]
       }
+    },
+
+    connect: {
+      server: {
+        options: {
+          port: 9001,
+          base: 'app/',
+          hostname: 'localhost',
+          middleware: function( connect, options ) {
+            var proxy = require('grunt-connect-proxy/lib/utils').proxyRequest;
+            return [
+              proxy,
+              connect.static(options.base),
+              connect.directory(options.base)
+            ];
+          }
+        },
+        proxies: [
+          {
+            context: '/api',
+            host: '127.0.0.1',
+            port: 8080,
+            https: false,
+            changeOrigin: false,
+            xforward: false,
+            headers: {
+              "Authorization": "Basic YWRtaW46ZGlzdHJpY3Q="
+            }
+          }
+        ]
+      }
     }
   });
 
-  grunt.registerTask('default', [
+  grunt.registerTask('server', [
+    'configureProxies:server',
+    'connect:server',
+    'watch'
+  ]);
+
+  grunt.registerTask('build', [
     'clean',
     'useminPrepare',
     'concat',
@@ -98,4 +138,6 @@ module.exports = function( grunt ) {
     'rev',
     'usemin'
   ]);
+
+  grunt.registerTask('default', [ 'build' ]);
 };
